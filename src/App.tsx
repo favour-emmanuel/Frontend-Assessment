@@ -1,15 +1,13 @@
-import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { setTheme } from "./Redux/slice/themeSlice";
+import { useDispatch } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./layout/Layout";
-import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
-import ServicePage from "./pages/ServicePage";
-import EngineeringPage from "./pages/EngineeringPage";
-import InnovationPage from "./pages/InnovationPage";
 import ContactPage from "./pages/ContactPage";
 import DepartmentPage from "./pages/DepartmentPage";
+import HomePage from "./pages/HomePage";
+import ServicePage from "./pages/ServicePage";
+import { setTheme } from "./Redux/slice/themeSlice";
 
 const App = () => {
   const dispatch = useDispatch();

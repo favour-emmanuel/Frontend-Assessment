@@ -1,9 +1,9 @@
+import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectTheme, setTheme } from "../Redux/slice/themeSlice";
-import { Icon } from "@iconify/react/dist/iconify.js";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { navItems } from "../constants";
+import { selectTheme, setTheme } from "../Redux/slice/themeSlice";
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
