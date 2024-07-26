@@ -8,8 +8,8 @@ export default {
       },
       colors: {
         appLightGray: "#F5F4F8",
-        appBlack: "#1C1F23",
-        appDarkGray: "#252729",
+        appBlack: "#111111",
+        appGreen: "#65B741",
       },
     },
   },

@@ -5,5 +5,5 @@
 @tailwind utilities;
 
 body {
-  @apply p-0 m-0 font-mulish;
+  @apply p-0 m-0 font-mulish bg-appBlack;
 }

@@ -2,7 +2,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ThemeProps } from "../../types";
 
-interface ThemeState {
+export interface ThemeState {
   theme: ThemeProps | null;
 }
 
