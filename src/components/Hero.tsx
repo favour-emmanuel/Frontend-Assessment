@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectTheme } from "../Redux/slice/themeSlice";
+import video1 from "../assets/video1.mp4";
+import { heroVideos } from "../constants";
 
 const Hero = () => {
   const theme = useSelector(selectTheme);
@@ -21,6 +23,7 @@ const Hero = () => {
         Transforming ideas into reality with cutting-edge technology,
         exceptional services, and groundbreaking research.
       </p>
+      {/* hero btn */}
       <div className="flex gap-8 my-4">
         <button
           className={`bg-appGreen py-2.5 px-3 rounded-md text-sm ${
@@ -32,6 +35,20 @@ const Hero = () => {
         <button className="border border-appGreen py-2.5 px-3 rounded-md text-sm">
           Learn More
         </button>
+      </div>
+      {/* hero videos */}
+      <div className="flex mt-8 justify-center">
+        {heroVideos.map((video, index) => (
+          <video
+            key={index}
+            autoPlay
+            loop
+            muted
+            className="rounded-lg w-1/3 border border-appGreen shadow-appGreen/60 mx-2 my-4"
+          >
+            <source src={video.src} type={video.type} />
+          </video>
+        ))}
       </div>
     </div>
   );

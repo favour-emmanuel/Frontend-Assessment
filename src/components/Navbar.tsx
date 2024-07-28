@@ -27,7 +27,7 @@ const Navbar = () => {
         theme?.theme === "Light"
           ? "bg-appLightGray text-[#1B1E22] border border-appGreen/35"
           : "bg-appBlack text-[#BBBCBD] border-b border-neutral-700/80 "
-      } bg-appBlack py-4 lg:px-16 px-6 sticky top-0 z-50 backdrop-blur-lg`}
+      } py-4 lg:px-16 px-6 sticky top-0 z-50 backdrop-blur-lg`}
     >
       <div className="flex justify-between items-center">
         <Link to="/" className="text-base font-extrabold">
