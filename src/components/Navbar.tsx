@@ -10,7 +10,6 @@ const Navbar = () => {
   const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const location = useLocation();
-  const navigate = useNavigate();
 
   const changeTheme = () => {
     if (theme?.theme === "Dark") {
@@ -26,9 +25,9 @@ const Navbar = () => {
     <header
       className={`${
         theme?.theme === "Light"
-          ? "bg-appLightGray text-[#1B1E22]"
+          ? "bg-appLightGray text-[#1B1E22] border border-appGreen/35"
           : "bg-appBlack text-[#BBBCBD] border-b border-neutral-700/80 "
-      } bg-appBlack py-6 lg:px-16 px-5 sticky top-0 z-50 backdrop-blur-lg`}
+      } bg-appBlack py-4 lg:px-16 px-6 sticky top-0 z-50 backdrop-blur-lg`}
     >
       <div className="flex justify-between items-center">
         <Link to="/" className="text-base font-extrabold">
@@ -64,7 +63,7 @@ const Navbar = () => {
               </span>
             )}
           </button>
-          <button className="hidden lg:flex bg-appGreen text-sm text-white py-2 px-3 rounded-md hover:bg-transparent hover:border hover:border-appGreen hover:text-appGreen hover:ease-in-out hover:duration-300">
+          <button className="hidden lg:flex bg-appGreen text-sm text-white py-2.5 px-3 rounded-md hover:bg-transparent hover:border hover:border-appGreen hover:text-appGreen hover:ease-in-out hover:duration-300">
             Create an account
           </button>
         </div>
@@ -109,7 +108,7 @@ const Navbar = () => {
             ))}
           </ul>
           <div>
-            <button className=" mt-5 bg-appGreen text-sm text-white py-2 px-3 rounded-md hover:bg-transparent hover:border hover:border-appGreen hover:text-appGreen hover:ease-in-out hover:duration-300">
+            <button className=" mt-5 bg-appGreen text-sm text-white py-2.5 px-3 rounded-md hover:bg-transparent hover:border hover:border-appGreen hover:text-appGreen hover:ease-in-out hover:duration-300">
               Create an account
             </button>
           </div>
