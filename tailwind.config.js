@@ -13,5 +13,10 @@ export default {
       },
     },
   },
-  plugins: [require("@tailwindcss/forms"), require("tailwindcss-filters")],
+  plugins: [require("@tailwindcss/forms")],
+  variants: {
+    extend: {
+      backdropBlur: ["responsive"],
+    },
+  },
 };

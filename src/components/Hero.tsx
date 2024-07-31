@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { selectTheme } from "../Redux/slice/themeSlice";
-import video1 from "../assets/video1.mp4";
 import { heroVideos } from "../constants";
 
 const Hero = () => {
@@ -12,9 +11,9 @@ const Hero = () => {
         theme?.theme === "Dark"
           ? "bg-appBlack text-white"
           : "bg-appLightGray text-appBlack"
-      } flex flex-col items-center py-6 lg:py-20 px-6 lg:px-10`}
+      } flex flex-col items-center py-6 lg:py-20 px-6 lg:px-16`}
     >
-      <h1 className="my-4 text-4xl sm:text-5xl lg:text-6xl font-bold text-center tracking-wide lg:max-w-[50rem]">
+      <h1 className="my-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold text-center tracking-wide lg:max-w-[50rem]">
         Discover <span className="text-appGreen">innovative solutions</span> and
         world class services
       </h1>
@@ -24,15 +23,15 @@ const Hero = () => {
         exceptional services, and groundbreaking research.
       </p>
       {/* hero btn */}
-      <div className="flex gap-8 my-4">
+      <div className="flex gap-8 my-4 w-full mx-auto max-w-[40rem] justify-center">
         <button
-          className={`bg-appGreen py-2.5 px-3 rounded-md text-sm ${
+          className={`bg-appGreen p-3 rounded-md text-[12.6px] lg:text-sm w-full max-w-[10rem] ${
             theme?.theme === "Light" ? "text-white" : ""
           }`}
         >
           Start for free
         </button>
-        <button className="border border-appGreen py-2.5 px-3 rounded-md text-sm">
+        <button className="border border-appGreen p-3 rounded-md text-sm w-full max-w-[10rem]">
           Learn More
         </button>
       </div>
@@ -44,7 +43,7 @@ const Hero = () => {
             autoPlay
             loop
             muted
-            className="rounded-lg w-1/3 border border-appGreen shadow-appGreen/60 mx-2 my-4"
+            className="rounded-lg w-1/2 border border-appGreen shadow-appGreen/60 mx-2 my-4"
           >
             <source src={video.src} type={video.type} />
           </video>

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./layout/Layout";
 import AboutPage from "./pages/AboutPage";
@@ -7,7 +7,7 @@ import ContactPage from "./pages/ContactPage";
 import DepartmentPage from "./pages/DepartmentPage";
 import HomePage from "./pages/HomePage";
 import ServicePage from "./pages/ServicePage";
-import { setTheme } from "./Redux/slice/themeSlice";
+import { selectTheme, setTheme } from "./Redux/slice/themeSlice";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -21,8 +21,14 @@ const App = () => {
     }
   }, []);
 
+  const theme = useSelector(selectTheme);
+
   return (
-    <>
+    <div
+      className={`${
+        theme?.theme === "Dark" ? "bg-appBlack" : "bg-appLightGray"
+      } `}
+    >
       <BrowserRouter>
         <Routes>
           <Route path="/">
@@ -44,7 +50,7 @@ const App = () => {
           />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   );
 };
 
