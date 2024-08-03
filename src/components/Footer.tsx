@@ -14,7 +14,7 @@ const Footer = () => {
           : "bg-appBlack text-white"
       }`}
     >
-      <div className="container mx-auto flex flex-col lg:flex-row justify-between lg:px-16 px-6 my-10">
+      <div className="container mx-auto flex flex-col lg:flex-row justify-between lg:px-16 px-6 mt-24">
         {/* Company Information */}
         <div>
           <Link to="/" className="text-base font-extrabold">
@@ -89,10 +89,10 @@ const Footer = () => {
       </div>
 
       <div
-        className={`mt-6 py-3.5 flex justify-between items-center text-sm  w-full lg:px-16 px-6 ${
+        className={`mt-3 py-3.5 flex justify-between items-center text-sm  w-full lg:px-16 px-6 ${
           theme?.theme === "Light"
             ? "bg-appGreen"
-            : "bg-appBlack border-t border-t-[#1a1a1ab3]"
+            : "bg-appBlack border-t border-t-appGreen/15"
         } text-white `}
       >
         <p className="text-sm">&copy; 2024 TechSpace. All rights reserved.</p>

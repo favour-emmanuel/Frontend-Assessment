@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react";
 import { useSelector } from "react-redux";
 import { selectTheme } from "../Redux/slice/themeSlice";
 
@@ -28,38 +29,62 @@ const ContactPage = () => {
         <div className="lg:mt-0 mt-5 w-full">
           <form action="">
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
-              <div className="bg-black/50  border-appGreen lg:max-w-[18rem] py-3 px-2 rounded-md w-full">
+              <div
+                className={`${
+                  theme?.theme === "Dark"
+                    ? "bg-black/50"
+                    : "bg-[#f3f3f3] text-appBlack"
+                } border border-appGreen lg:max-w-[18rem] py-2.5 px-2 rounded-md w-full`}
+              >
                 <input
                   type="text"
                   placeholder="Name"
-                  className="w-full border border-appGreen outline-none bg-transparent"
+                  className="w-full text-sm lg:text-[15px] outline-none bg-transparent"
                 />
               </div>
-              <div className="bg-black/85 border border-appGreen text-sm lg:max-w-[18rem] py-3 px-2 rounded-md w-full ">
+              <div
+                className={`${
+                  theme?.theme === "Dark"
+                    ? "bg-black/50"
+                    : "bg-[#f3f3f3] text-appBlack"
+                } border border-appGreen lg:max-w-[18rem] py-2.5 px-2 rounded-md w-full`}
+              >
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full outline-none border-none bg-transparent placeholder:text-appGreen"
+                  className="w-full text-sm lg:text-[15px] outline-none bg-transparent "
                 />
               </div>
             </div>
-            <div className="bg-black/85 border border-appGreen text-apptextAlt  py-3 px-2 rounded-md w-full mt-4">
+            <div
+              className={`${
+                theme?.theme === "Dark"
+                  ? "bg-black/85"
+                  : "bg-[#f3f3f3] text-appBlack"
+              } border border-appGreen text-apptextAlt  py-2.5 px-2 rounded-md w-full mt-4`}
+            >
               <input
                 type="phone"
                 placeholder="Your phone no."
                 name="clientNo"
-                className="w-full outline-none bg-transparent placeholder:text-appGreen"
+                className="w-full outline-none bg-transparent"
               />
             </div>
-            <div className="bg-black/85 border border-appGreen  py-3 px-2 rounded-md w-full mt-4 h-[11rem] ">
+            <div
+              className={`${
+                theme?.theme === "Dark"
+                  ? "bg-black/85"
+                  : "bg-[#f3f3f3] text-appBlack"
+              } border border-appGreen  py-3 px-2 rounded-md w-full mt-4 h-[11rem]`}
+            >
               <textarea
-                className="bg-transparent outline-none border-none w-full h-full placeholder:text-appGreen"
+                className="bg-transparent outline-none w-full h-full"
                 placeholder="Message"
                 name="clientMsg"
               ></textarea>
             </div>
             <div>
-              <button className="bg-appGreen text-sm text-apptextAlt  py-4 px-2 rounded-lg w-full mt-4">
+              <button className="bg-appGreen text-appLightGray text-sm text-apptextAlt  py-4 px-2 rounded-lg w-full mt-4">
                 Send message
               </button>
             </div>
