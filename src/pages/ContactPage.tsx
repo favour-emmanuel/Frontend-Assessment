@@ -1,4 +1,3 @@
-import { Icon } from "@iconify/react";
 import { useSelector } from "react-redux";
 import { selectTheme } from "../Redux/slice/themeSlice";
 
