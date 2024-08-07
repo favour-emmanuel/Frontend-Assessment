@@ -78,22 +78,22 @@ const Navbar = () => {
         <div
           className={
             nav
-              ? `fixed left-0 top-0 z-10 duration-300 p-5 ${
+              ? `fixed left-0 top-0 w-full max-w-[25rem] md:max-w-[45rem] z-10 duration-300 p-5 ${
                   theme?.theme === "Light" ? "bg-appLightGray" : "bg-appBlack"
-                } w-[400px] h-screen`
-              : "fixed left-[-100%] top-0 w-[400px] h-screen"
+                } h-screen`
+              : "fixed left-[-100%] top-0 min-h-[90vh] z-10 "
           }
         >
           <span
             onClick={() => setNav(!nav)}
-            className="absolute right-4 top-4 cursor-pointer"
+            className="absolute right-4 top-4 cursor-pointer text-lg"
           >
             <Icon icon="line-md:menu-to-close-alt-transition" />
           </span>
-          <Link to="/" className="text-base font-extrabold">
+          <Link to="/" className="text-xl font-extrabold">
             tech<span className="text-appGreen">Space</span>
           </Link>
-          <ul className="flex flex-col gap-5 mt-6 text-sm sm:text-base">
+          <ul className="flex flex-col gap-y-6 mt-8 text-sm sm:text-base">
             {navItems.map((item, index) => (
               <li key={index}>
                 <Link

@@ -14,7 +14,7 @@ const AboutPage = () => {
             : "bg-appLightGray text-appBlack"
         } py-10 lg:py-12 lg:px-16 px-6`}
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto lg:px-4">
           <h2 className="text-3xl font-bold text-center mb-8">About Us</h2>
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <div className="lg:w-1/2">
@@ -24,7 +24,7 @@ const AboutPage = () => {
                 className="rounded-lg shadow-lg w-full h-auto"
               />
             </div>
-            <div className="lg:w-1/2 lg:pl-8 mt-8 lg:mt-0 text-sm sm:text-base lg:text-lg">
+            <div className="lg:w-1/2 lg:pl-8 mt-8 lg:mt-0 text-sm lg:text-base font-light">
               <p className="leading-relaxed mb-4">
                 Welcome to TechSpace, where creativity meets technology. Founded
                 in 2020, our company has consistently been at the cutting edge

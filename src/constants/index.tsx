@@ -30,6 +30,7 @@ export const navItems = [
   },
 ];
 
+// videos
 export const heroVideos = [
   {
     src: video1,
@@ -38,27 +39,89 @@ export const heroVideos = [
   { src: video2, type: "video/mp4" },
 ];
 
-export const departments = [
+// Departments section
+export interface Department {
+  title: string;
+  description: string;
+  link: string;
+  image: JSX.Element;
+}
+
+export const departments: Department[] = [
   {
     title: "Engineering and Technology",
     description:
       "Innovative solutions in software development, cloud solutions, security analysis, and DevOps.",
     link: "/engineering-technology",
-    image: "path/to/engineering-icon.svg",
+    image: <Icon icon="carbon:ibm-engineering-lifecycle-mgmt" />,
   },
   {
     title: "General Services",
     description:
       "Comprehensive services including procurement, equipment servicing, and hiring to meet all your operational needs.",
     link: "/general-services",
-    image: "path/to/general-services-icon.svg",
+    image: <Icon icon="carbon:settings-services" />,
   },
   {
     title: "Innovation Hub",
     description:
       "Cutting-edge research and development focusing on the latest technologies and innovative solutions.",
     link: "/innovation-hub",
-    image: "path/to/innovation-hub-icon.svg",
+    image: <Icon icon="hugeicons:ai-innovation-03" />,
+  },
+];
+
+// for services section
+export interface Service {
+  id: number;
+  title: string;
+  description: string;
+  details: string;
+  icon: string; // Icon identifier for the service
+}
+
+export const services: Service[] = [
+  {
+    id: 1,
+    title: "Cloud Solutions",
+    description: "Scalable and secure cloud services.",
+    details:
+      "Our cloud solutions offer flexibility and scalability to meet your growing business needs, including storage, computing, and network services.",
+    icon: "mdi:cloud",
+  },
+  {
+    id: 2,
+    title: "Procurement",
+    description: "Efficient and cost-effective procurement services.",
+    details:
+      "We streamline the procurement process to ensure timely and cost-effective acquisition of goods and services, with a focus on transparency and efficiency.",
+    icon: "mdi:shopping",
+  },
+
+  {
+    id: 4,
+    title: "Software Development",
+    description: "Custom software solutions tailored to your needs.",
+    details:
+      "We develop bespoke software solutions to meet your specific requirements, including web applications, mobile apps, and enterprise software.",
+    icon: "mdi:code-tags",
+  },
+
+  {
+    id: 6,
+    title: "DevOps Services",
+    description: "Integrating development and operations for faster delivery.",
+    details:
+      "Our DevOps services focus on automating and streamlining development and operations processes, including continuous integration and deployment.",
+    icon: "mdi:dev",
+  },
+  {
+    id: 7,
+    title: "Research and Development",
+    description: "Innovative R&D services for technology advancement.",
+    details:
+      "We offer R&D services to drive innovation and technological advancement, including prototype development, technology scouting, and feasibility studies.",
+    icon: "mdi:brain",
   },
 ];
 
