@@ -1,8 +1,49 @@
 import { useSelector } from "react-redux";
 import { selectTheme } from "../Redux/slice/themeSlice";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { useContext } from "react"; // Assuming you have a ThemeContext for managing theme
 
-const ContactPage = () => {
+const departments = [
+  { id: 1, name: "Engineering and Technology" },
+  { id: 2, name: "General Services" },
+  { id: 3, name: "Innovation Hub" },
+];
+
+const schema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Email is invalid").min(1, "Email is required"),
+  phone: z.string().min(1, "Phone number is required"),
+  message: z.string().min(1, "Message is required"),
+});
+
+const ContactPage: React.FC = () => {
   const theme = useSelector(selectTheme);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = (data: any) => {
+    setTimeout(() => {
+      alert(JSON.stringify(data, null, 2));
+      reset();
+    }, 500);
+  };
+
+  const getErrorMessage = (error: any) => {
+    if (error) {
+      return error.message as string;
+    }
+    return "";
+  };
 
   return (
     <div
@@ -26,7 +67,7 @@ const ContactPage = () => {
           </p>
         </div>
         <div className="lg:mt-0 mt-5 w-full">
-          <form action="">
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
               <div
                 className={`${
@@ -38,6 +79,7 @@ const ContactPage = () => {
                 <input
                   type="text"
                   placeholder="Name"
+                  {...register("name")}
                   className="w-full text-sm lg:text-[15px] outline-none bg-transparent"
                 />
               </div>
@@ -51,9 +93,23 @@ const ContactPage = () => {
                 <input
                   type="email"
                   placeholder="Email"
-                  className="w-full text-sm lg:text-[15px] outline-none bg-transparent "
+                  {...register("email")}
+                  className="w-full text-sm lg:text-[15px] outline-none bg-transparent"
                 />
               </div>
+            </div>
+            <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-1">
+              {errors.name && (
+                <p className="text-red-500 text-sm">
+                  {getErrorMessage(errors.name)}
+                </p>
+              )}
+
+              {errors.email && (
+                <p className="text-red-500 text-sm">
+                  {getErrorMessage(errors.email)}
+                </p>
+              )}
             </div>
             <div
               className={`${
@@ -63,12 +119,17 @@ const ContactPage = () => {
               } border border-appGreen text-apptextAlt  py-2.5 px-2 rounded-md w-full mt-4`}
             >
               <input
-                type="phone"
+                type="text"
                 placeholder="Your phone no."
-                name="clientNo"
-                className="w-full outline-none bg-transparent"
+                {...register("phone")}
+                className="w-full text-sm lg:text-[15px] outline-none bg-transparent"
               />
             </div>
+            {errors.phone && (
+              <p className="text-red-500 text-sm mt-1">
+                {getErrorMessage(errors.phone)}
+              </p>
+            )}
             <div
               className={`${
                 theme?.theme === "Dark"
@@ -77,14 +138,23 @@ const ContactPage = () => {
               } border border-appGreen  py-3 px-2 rounded-md w-full mt-4 h-[11rem]`}
             >
               <textarea
-                className="bg-transparent outline-none w-full h-full"
                 placeholder="Message"
-                name="clientMsg"
+                {...register("message")}
+                className="bg-transparent outline-none w-full h-full"
               ></textarea>
             </div>
+            {errors.message && (
+              <p className="text-red-500 text-sm mt-1">
+                {getErrorMessage(errors.message)}
+              </p>
+            )}
             <div>
-              <button className="bg-appGreen text-appLightGray text-sm text-apptextAlt  py-4 px-2 rounded-lg w-full mt-4">
-                Send message
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="bg-appGreen text-appLightGray text-sm py-4 px-2 rounded-lg w-full mt-4"
+              >
+                {isSubmitting ? "Sending..." : "Send message"}
               </button>
             </div>
           </form>
