@@ -1,16 +1,10 @@
-import { useSelector } from "react-redux";
-import { selectTheme } from "../Redux/slice/themeSlice";
-import React from "react";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 import { z } from "zod";
-import { useContext } from "react"; // Assuming you have a ThemeContext for managing theme
-
-const departments = [
-  { id: 1, name: "Engineering and Technology" },
-  { id: 2, name: "General Services" },
-  { id: 3, name: "Innovation Hub" },
-];
+import { selectTheme } from "../Redux/slice/themeSlice";
+import SuccessAlert from "../components/SuccessAlert";
 
 const schema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -31,11 +25,15 @@ const ContactPage: React.FC = () => {
     resolver: zodResolver(schema),
   });
 
+  const [showSuccess, setShowSuccess] = useState(false);
+
   const onSubmit = (data: any) => {
+    console.log(data);
+    setShowSuccess(true);
     setTimeout(() => {
-      alert(JSON.stringify(data, null, 2));
+      setShowSuccess(false);
       reset();
-    }, 500);
+    }, 3000);
   };
 
   const getErrorMessage = (error: any) => {
@@ -66,6 +64,13 @@ const ContactPage: React.FC = () => {
             say hello, I'm here to chat. I can't wait to hear from you!
           </p>
         </div>
+        {showSuccess && (
+          <SuccessAlert
+            message="Form submitted successfully!"
+            onClose={() => setShowSuccess(false)}
+          />
+        )}
+
         <div className="lg:mt-0 mt-5 w-full">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
