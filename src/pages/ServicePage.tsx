@@ -12,6 +12,7 @@ const ServicePage = () => {
   const handleServiceClick = (id: number) => {
     setSelectedService(selectedService === id ? null : id);
   };
+
   return (
     <section
       className={`${
@@ -20,16 +21,28 @@ const ServicePage = () => {
           : "bg-appLightGray text-appBlack"
       } py-10 lg:py-12 lg:px-16 px-6`}
     >
-      <h1 className="text-3xl font-bold mb-2">Our Services</h1>
-      <p className="text-lg">
-        Explore our range of services designed to meet your needs.
+      <h2
+        className={`text-3xl font-bold my-3 ${
+          theme?.theme === "Dark" ? "text-appGreen" : ""
+        }`}
+      >
+        Our Services
+      </h2>
+      <p className="text-sm lg:text-base font-light mb-5 w-full lg:max-w-[35rem]">
+        Explore our range of services designed to meet your needs. Our dedicated
+        team provides comprehensive solutions designed to address specific
+        challenges and drive your business forward.
       </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
         {services.map((service) => (
           <div
             key={service.id}
-            className="p-4 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+            className={`p-4 ${
+              theme?.theme === "Dark"
+                ? "bg-[#191919ee] text-gray-300"
+                : "bg-[#f7f9f9] text-black"
+            } rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer`}
             onClick={() => handleServiceClick(service.id)}
           >
             <div className="flex items-center mb-4">

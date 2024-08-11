@@ -113,7 +113,7 @@ export const services: Service[] = [
     description: "Integrating development and operations for faster delivery.",
     details:
       "Our DevOps services focus on automating and streamlining development and operations processes, including continuous integration and deployment.",
-    icon: "mdi:dev",
+    icon: "oui:integration-general",
   },
   {
     id: 7,
@@ -121,7 +121,7 @@ export const services: Service[] = [
     description: "Innovative R&D services for technology advancement.",
     details:
       "We offer R&D services to drive innovation and technological advancement, including prototype development, technology scouting, and feasibility studies.",
-    icon: "mdi:brain",
+    icon: "carbon:development",
   },
 ];
 

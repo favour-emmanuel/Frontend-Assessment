@@ -18,13 +18,20 @@ const DepartmentPage = () => {
       >
         <div className="container mx-auto text-center">
           <h2
-            className={`text-3xl font-bold mb-8 ${
+            className={`text-3xl font-bold my-3 ${
               theme?.theme === "Dark" ? "text-appGreen" : ""
             }`}
           >
             Our Departments
           </h2>
-          <div className="flex flex-wrap justify-center gap-8">
+          <p className="text-sm lg:text-base font-light leading-8 my-5 w-full max-w-[50rem] mx-auto">
+            Explore our key areas: Engineering and Technology, where innovation
+            meets expertise; General Services, offering streamlined procurement
+            and servicing solutions; and the Innovation Hub, driving
+            cutting-edge research and development. Each department is dedicated
+            to delivering excellence and meeting your needs.
+          </p>
+          <div className="flex flex-wrap justify-center gap-8 my-7">
             {departments.map((dept, index) => (
               <div
                 key={index}
